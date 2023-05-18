@@ -6,7 +6,7 @@ const Login = () => {
   const [error, setError] = useState("");
   const [success, setSuccess] = useState("");
 
-  const { signInUser } = useContext(AuthContext);
+  const { signInUser, googleSignIn } = useContext(AuthContext);
 
   const handleSignIn = (event) => {
     event.preventDefault();
@@ -27,6 +27,20 @@ const Login = () => {
         setError(error.message);
       });
   };
+
+  const handleGoogleSignIn = () => {
+    googleSignIn()
+      .then(result => {
+        const googleLogin = result.user;
+        console.log(googleLogin)
+
+      })
+      .catch(error => {
+      console.log(error.message)
+    })
+  }
+
+
   return (
     <>
       <section className="md:px-20 py-14">
@@ -67,6 +81,7 @@ const Login = () => {
               </div>
               <div className="my-6 space-y-4">
                 <button
+                  onClick={handleGoogleSignIn}
                   aria-label="Login with Google"
                   type="button"
                   className="bg-pink-600 flex items-center justify-center w-full p-2 border rounded-xl focus:ring-2 focus:ring-offset-1 "
