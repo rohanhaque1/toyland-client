@@ -1,9 +1,18 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../Provider/AuthProvider";
 
 const Header = () => {
-  const { user } = useContext(AuthContext);
+  const [error, setError] = useState('');
+  const { user, signOutUser } = useContext(AuthContext);
+
+  const handleSignOut = () => {
+    signOutUser()
+      .then(() => { })
+      .catch(error => {
+      setError(error.message)
+    })
+  }
 
   return (
     <>
@@ -13,7 +22,7 @@ const Header = () => {
             <label tabIndex={0} className="btn btn-ghost lg:hidden">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
-                className="h-5 w-5"
+                className="h-5 w-5 font-bold"
                 fill="none"
                 viewBox="0 0 24 24"
                 stroke="currentColor"
@@ -28,7 +37,7 @@ const Header = () => {
             </label>
             <ul
               tabIndex={0}
-              className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52 font-bold text-md"
+              className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52 font-bold text-md text-black"
             >
               <li>
                 <Link to="/">Home</Link>
@@ -47,7 +56,7 @@ const Header = () => {
           <Link to="/" className="font-bold text-3xl">
             <div className="flex gap-2">
               <img
-                src="https://images.pexels.com/photos/1592384/pexels-photo-1592384.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+                src="https://img.freepik.com/free-vector/different-kind-toys_1308-71053.jpg?w=740&t=st=1684418360~exp=1684418960~hmac=28ea11f7b5e1c0dafb34e9d0dd15fdc5dc394308e89d2117dc07498aa8380a06"
                 alt=""
                 className="w-9 h-9 rounded-full"
               />
@@ -78,8 +87,8 @@ const Header = () => {
             )}
             {user ? (
               <>
-                <li>
-                  <Link to="/logout">Log Out</Link>
+                <li onClick={handleSignOut}>
+                  <Link>Log Out</Link>
                 </li>
               </>
             ) : (

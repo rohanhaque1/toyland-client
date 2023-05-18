@@ -28,7 +28,7 @@ const Footer = () => {
       <footer className="footer px-14 md:px-20 py-10 border-t bg-base-200 text-base-content border-base-300">
         <div className="items-center grid-flow-col">
           <img
-            src="https://images.pexels.com/photos/1592384/pexels-photo-1592384.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+            src="https://img.freepik.com/free-vector/different-kind-toys_1308-71053.jpg?w=740&t=st=1684418360~exp=1684418960~hmac=28ea11f7b5e1c0dafb34e9d0dd15fdc5dc394308e89d2117dc07498aa8380a06"
             alt=""
             className="w-9 h-9"
           />
