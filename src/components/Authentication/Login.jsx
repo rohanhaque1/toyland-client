@@ -22,6 +22,7 @@ const Login = () => {
         const loginUser = result.user;
         // console.log(loginUser)
         setSuccess("Login Successfull");
+        form.reset('');
       })
       .catch((error) => {
         setError(error.message);
@@ -32,11 +33,12 @@ const Login = () => {
     googleSignIn()
       .then(result => {
         const googleLogin = result.user;
-        console.log(googleLogin)
+        // console.log(googleLogin)
+        setSuccess("Google Login Successfull")
 
       })
       .catch(error => {
-      console.log(error.message)
+      setError(error.message)
     })
   }
 

@@ -1,7 +1,10 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../Provider/AuthProvider";
 
 const Header = () => {
+  const { user } = useContext(AuthContext);
+
   return (
     <>
       <div className="navbar flex justify-between bg-pink-800 text-gray-200 md:px-20 py-4">
@@ -63,19 +66,41 @@ const Header = () => {
             <li>
               <Link to="/blogs">Blogs</Link>
             </li>
-            <li>
-              <Link to="/login">Login</Link>
-            </li>
+            {user && (
+              <>
+                <li>
+                  <Link to="/addToys">Add a Toy</Link>
+                </li>
+                <li>
+                  <Link to="/myToys">My Toys</Link>
+                </li>
+              </>
+            )}
+            {user ? (
+              <>
+                <li>
+                  <Link to="/logout">Log Out</Link>
+                </li>
+              </>
+            ) : (
+              <>
+                <li>
+                  <Link to="/login">Login</Link>
+                </li>
+              </>
+            )}
           </ul>
         </div>
         <div className="w-12 rounded-full">
-          <div className="bg-neutral-focus text-neutral-content rounded-full w-12">
-            <img
-              className="cursor-pointer w-12 h-12 rounded-full"
-              title=""
-              src=""
-            />
-          </div>
+          {user && (
+            <div className="bg-neutral-focus text-neutral-content rounded-full w-12">
+              <img
+                className="cursor-pointer w-12 h-12 rounded-full"
+                title={user?.displayName}
+                src={user?.photoURL}
+              />
+            </div>
+          )}
         </div>
       </div>
     </>
