@@ -1,11 +1,76 @@
-import React from 'react';
+import React from "react";
+import { Link } from "react-router-dom";
 
 const Register = () => {
-    return (
-        <div>
-            <h2>Register page</h2>
+  return (
+    <>
+      <section className="md:px-20 py-14">
+        <div className="hero py-28 rounded-lg bg-base-200">
+          <div className="card  w-full max-w-sm shadow-2xl bg-base-100">
+            <h2 className="text-4xl font-bold text-center my-5">Register Account</h2>
+            <form className="card-body">
+              <div className="form-control">
+                <label className="label text-lg font-bold">
+                  <span className="label-text">Name</span>
+                </label>
+                <input
+                  type="text"
+                  name="name"
+                  placeholder="name"
+                  className="input input-bordered input-secondary w-full"
+                />
+              </div>
+              <div className="form-control">
+                <label className="label text-lg font-bold">
+                  <span className="label-text">Email</span>
+                </label>
+                <input
+                  type="email"
+                  name="email"
+                  placeholder="email"
+                  className="input input-bordered input-secondary w-full"
+                />
+              </div>
+              <div className="form-control">
+                <label className="label text-lg font-bold">
+                  <span className="label-text">Password</span>
+                </label>
+                <input
+                  type="password"
+                  name="password"
+                  placeholder="password"
+                  className="input input-bordered input-secondary w-full"
+                />
+              </div>
+              <div className="form-control">
+                <label className="label text-lg font-bold">
+                  <span className="label-text">Photo URL</span>
+                </label>
+                <input
+                  type="text"
+                  name="photo"
+                  placeholder="Photo URL"
+                  className="input input-bordered input-secondary w-full"
+                />
+              </div>
+              <div className="form-control mt-6">
+                <button className="btn btn-primary">Register</button>
+              </div>
+
+              <div className="text-md text-gray-600 font-bold">
+                <p>
+                  Already have an Account ?
+                  <Link to="/login" className="text-pink-700">
+                    Login
+                  </Link>
+                </p>
+              </div>
+            </form>
+          </div>
         </div>
-    );
+      </section>
+    </>
+  );
 };
 
 export default Register;

@@ -38,7 +38,7 @@ const Login = () => {
                 <button
                   aria-label="Login with Google"
                   type="button"
-                  className="bg-pink-600 flex items-center justify-center w-full p-4 border rounded-md focus:ring-2 focus:ring-offset-1 "
+                  className="bg-pink-600 flex items-center justify-center w-full p-2 border rounded-xl focus:ring-2 focus:ring-offset-1 "
                 >
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
