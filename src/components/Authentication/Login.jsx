@@ -1,23 +1,49 @@
-import React from "react";
+import React, { useContext, useState } from "react";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../Provider/AuthProvider";
 
 const Login = () => {
+  const [error, setError] = useState("");
+  const [success, setSuccess] = useState("");
+
+  const { signInUser } = useContext(AuthContext);
+
+  const handleSignIn = (event) => {
+    event.preventDefault();
+    setSuccess("");
+
+    const form = event.target;
+    const email = form.email.value;
+    const password = form.password.value;
+
+    setError("");
+    signInUser(email, password)
+      .then((result) => {
+        const loginUser = result.user;
+        // console.log(loginUser)
+        setSuccess("Login Successfull");
+      })
+      .catch((error) => {
+        setError(error.message);
+      });
+  };
   return (
     <>
       <section className="md:px-20 py-14">
         <div className="hero py-28 rounded-lg bg-base-200">
           <div className="card  w-full max-w-sm shadow-2xl bg-base-100">
             <h2 className="text-4xl font-bold text-center my-5">Login</h2>
-            <form className="card-body">
+            <form onSubmit={handleSignIn} className="card-body">
               <div className="form-control">
                 <label className="label text-lg font-bold">
                   <span className="label-text">Email</span>
                 </label>
                 <input
-                  type="text"
+                  type="email"
                   name="email"
                   placeholder="email"
                   className="input input-bordered input-secondary w-full"
+                  required
                 />
               </div>
               <div className="form-control">
@@ -25,11 +51,16 @@ const Login = () => {
                   <span className="label-text">Password</span>
                 </label>
                 <input
-                  type="text"
+                  type="password"
                   name="password"
                   placeholder="password"
                   className="input input-bordered input-secondary w-full"
+                  required
                 />
+              </div>
+              <div className="space-y-2">
+                <p className="text-emerald-600 font-semibold">{success}</p>
+                <p className="text-red-600 font-semibold">{error}</p>
               </div>
               <div className="form-control mt-6">
                 <button className="btn btn-primary">Login</button>

@@ -67,6 +67,7 @@ const Register = () => {
                   name="name"
                   placeholder="name"
                   className="input input-bordered input-secondary w-full"
+                  required
                 />
               </div>
               <div className="form-control">
@@ -78,6 +79,7 @@ const Register = () => {
                   name="email"
                   placeholder="email"
                   className="input input-bordered input-secondary w-full"
+                  required
                 />
               </div>
               <div className="form-control">
@@ -89,6 +91,7 @@ const Register = () => {
                   name="password"
                   placeholder="password"
                   className="input input-bordered input-secondary w-full"
+                  required
                 />
               </div>
               <div className="form-control">
@@ -100,6 +103,7 @@ const Register = () => {
                   name="photo"
                   placeholder="Photo URL"
                   className="input input-bordered input-secondary w-full"
+                  required
                 />
               </div>
               <div className="space-y-2">
