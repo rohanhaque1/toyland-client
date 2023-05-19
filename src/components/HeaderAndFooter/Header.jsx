@@ -102,12 +102,10 @@ const Header = () => {
         </div>
         <div className="w-12 rounded-full">
           {user && (
-            <div className="bg-neutral-focus text-neutral-content rounded-full w-12">
-              <img
-                className="cursor-pointer w-12 h-12 rounded-full"
-                title={user?.displayName}
-                src={user?.photoURL}
-              />
+            <div className="avatar online">
+              <div className="w-12 rounded-full">
+                <img src={user?.photoURL} title={user?.displayName} />
+              </div>
             </div>
           )}
         </div>

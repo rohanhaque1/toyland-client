@@ -14,7 +14,8 @@ const AddToy = () => {
               type="text"
               name="name"
               placeholder="Toy Name"
-              className="input input-bordered input-secondary w-full"
+              className="input input-bordered input-primary w-full"
+              required
             />
           </div>
           <div>
@@ -23,7 +24,8 @@ const AddToy = () => {
               type="text"
               name="seller"
               placeholder="Seller Name"
-              className="input input-bordered input-secondary w-full"
+              className="input input-bordered input-primary w-full"
+              required
             />
           </div>
           <div>
@@ -32,12 +34,17 @@ const AddToy = () => {
               type="email"
               name="email"
               placeholder="Seller Email"
-              className="input input-bordered input-secondary w-full"
+              className="input input-bordered input-primary w-full"
+              required
             />
           </div>
           <div>
             <label className="block font-bold">Sub Category</label>
-            <select className="select select-secondary w-full max-w-xs">
+            <select
+              name="category"
+              className="select select-primary w-full"
+              required
+            >
               <option disabled selected>
                 Car Toys
               </option>
@@ -57,7 +64,8 @@ const AddToy = () => {
               type="text"
               name="price"
               placeholder="$ 00"
-              className="input input-bordered input-secondary w-full"
+              className="input input-bordered input-primary w-full"
+              required
             />
           </div>
           <div>
@@ -66,7 +74,8 @@ const AddToy = () => {
               type="text"
               name="rating"
               placeholder="Ratings"
-              className="input input-bordered input-secondary w-full"
+              className="input input-bordered input-primary w-full"
+              required
             />
           </div>
           <div>
@@ -75,7 +84,8 @@ const AddToy = () => {
               type="number"
               name="quantity"
               placeholder="Available quantity"
-              className="input input-bordered input-secondary w-full"
+              className="input input-bordered input-primary w-full"
+              required
             />
           </div>
         </div>
@@ -85,20 +95,22 @@ const AddToy = () => {
             type="text"
             name="photo"
             placeholder="Photo URL"
-            className="input input-bordered input-secondary w-full"
+            className="input input-bordered input-primary w-full"
+            required
           />
         </div>
         <div>
           <label className="block font-bold">Description</label>
           <textarea
-            className="textarea textarea-secondary block w-full resize-none"
+            className="textarea textarea-primary block w-full resize-none"
             placeholder="Add Description"
+            required
           ></textarea>
         </div>
         <div>
           <input
             type="submit"
-            value="Add Coffee"
+            value="Add Toy"
             className="bg-orange-300 w-full my-3 py-3 rounded-lg font-bold"
           />
         </div>
