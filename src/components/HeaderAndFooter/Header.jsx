@@ -37,7 +37,7 @@ const Header = () => {
             </label>
             <ul
               tabIndex={0}
-              className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52 font-bold text-md text-black"
+              className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-teal-700 rounded-box w-52 font-bold text-md text-white"
             >
               <li>
                 <Link to="/">Home</Link>
@@ -48,9 +48,32 @@ const Header = () => {
               <li>
                 <Link to="/blogs">Blogs</Link>
               </li>
-              <li>
+              {/* <li>
                 <Link to="/login">Login</Link>
-              </li>
+              </li> */}
+              {user && (
+                <>
+                  <li>
+                    <Link to="/addToys">Add a Toy</Link>
+                  </li>
+                  <li>
+                    <Link to="/myToys">My Toys</Link>
+                  </li>
+                </>
+              )}
+              {user ? (
+                <>
+                  <li onClick={handleSignOut}>
+                    <Link>Log Out</Link>
+                  </li>
+                </>
+              ) : (
+                <>
+                  <li>
+                    <Link to="/login">Login</Link>
+                  </li>
+                </>
+              )}
             </ul>
           </div>
           <Link to="/">
