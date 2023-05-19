@@ -30,8 +30,8 @@ const MyToys = () => {
               </tr>
             </thead>
             <tbody>
-              {toys.map((toy) => (
-                <Toys key={toy._id} toy={toy}></Toys>
+              {toys.map((toy, index) => (
+                <Toys key={toy._id} toy={toy} index={index}></Toys>
               ))}
             </tbody>
           </table>

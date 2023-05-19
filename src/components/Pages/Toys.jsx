@@ -1,7 +1,7 @@
 import React from "react";
 import { PencilIcon, TrashIcon } from "@heroicons/react/24/solid";
 
-const Toys = ({ toy }) => {
+const Toys = ({ toy, index }) => {
   const {
     category,
     description,
@@ -17,7 +17,7 @@ const Toys = ({ toy }) => {
   return (
     <>
       <tr>
-        <td>1</td>
+              <td>{index+1}.</td>
         <td>
           <div className="avatar">
             <div className="mask mask-squircle w-12 h-12">

@@ -1,6 +1,10 @@
 import React from "react";
+import { useLoaderData } from "react-router-dom";
+import ToyTable from "./ToyTable";
 
 const AllToys = () => {
+  const allToys = useLoaderData()
+  
   return (
     <>
       <section className="md:w-8/12 mx-auto my-10">
@@ -35,7 +39,7 @@ const AllToys = () => {
       <section className="my-10 px-20">
         <div className="overflow-x-auto w-full">
           <table className="table w-full">
-            {/* head */}
+            
             <thead>
               <tr>
                 <th>Toy Name</th>
@@ -47,33 +51,9 @@ const AllToys = () => {
               </tr>
             </thead>
             <tbody>
-              {/* row 1 */}
-              <tr>
-                <td>
-                  <div className="flex items-center space-x-3">
-                    <div className="avatar">
-                      <div className="mask mask-squircle w-12 h-12">
-                        <img
-                          src="https://image.made-in-china.com/2f0j00lHRYihPBOrcb/Mercedes-Actros-Truck-Licensed-Ride-on-Car-Toy-Electric-Kids-Car.jpg"
-                          alt="Avatar Tailwind CSS Component"
-                        />
-                      </div>
-                    </div>
-                    <div>
-                      <div className="font-bold">Hart Hagerty</div>
-                    </div>
-                  </div>
-                </td>
-                <td>Seller Name</td>
-                <td>Car</td>
-                <td>$ 100</td>
-                <td>10</td>
-                <th>
-                  <button className="btn px-3 py-4 bg-teal-600 text-white">
-                    view details
-                  </button>
-                </th>
-              </tr>
+              {
+                allToys.map(allToy => <ToyTable key={allToy._id} allToy={allToy}></ToyTable>)
+              }
             </tbody>
           </table>
         </div>

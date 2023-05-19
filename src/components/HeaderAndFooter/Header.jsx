@@ -43,14 +43,11 @@ const Header = () => {
                 <Link to="/">Home</Link>
               </li>
               <li>
-                <Link to="/allToys">All Toys</Link>
-              </li>
-              <li>
                 <Link to="/blogs">Blogs</Link>
               </li>
-              {/* <li>
-                <Link to="/login">Login</Link>
-              </li> */}
+              <li>
+                <Link to="/allToys">All Toys</Link>
+              </li>
               {user && (
                 <>
                   <li>
@@ -93,10 +90,10 @@ const Header = () => {
               <Link to="/">Home</Link>
             </li>
             <li>
-              <Link to="/allToys">All Toys</Link>
+              <Link to="/blogs">Blogs</Link>
             </li>
             <li>
-              <Link to="/blogs">Blogs</Link>
+              <Link to="/allToys">All Toys</Link>
             </li>
             {user && (
               <>
