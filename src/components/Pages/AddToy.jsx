@@ -1,9 +1,54 @@
 import React from "react";
 
 const AddToy = () => {
+  const handleAddToys = (event) => {
+    event.preventDefault();
+    const form = event.target;
+    const name = form.name.value;
+    const seller = form.seller.value;
+    const email = form.email.value;
+    const category = form.category.value;
+    const price = form.price.value;
+    const rating = form.rating.value;
+    const quantity = form.quantity.value;
+    const photo = form.photo.value;
+    const description = form.description.value;
+    const toys = {
+      name,
+      seller,
+      email,
+      category,
+      price,
+      rating,
+      quantity,
+      photo,
+      description,
+    };
+    console.log(toys);
+
+    // send data to the server
+    fetch("http://localhost:5000/toys", {
+      method: 'POST',
+      headers: {
+        'content-type': 'application/json'
+      },
+      body: JSON.stringify(toys)
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+        if (insertedId) {
+          alert('Car has been added successfully')
+        }
+      });
+  };
+
   return (
     <section className="md:w-7/12 mx-auto px-10 md:px-20 py-10 bg-slate-200">
-      <form className="bg-white rounded-xl shadow-xl p-5 space-y-4">
+      <form
+        onSubmit={handleAddToys}
+        className="bg-white rounded-xl shadow-xl p-5 space-y-4"
+      >
         <h2 className="text-orange-800 font-bold text-3xl text-center my-5">
           Add a Toy
         </h2>
@@ -103,6 +148,7 @@ const AddToy = () => {
           <label className="block font-bold">Description</label>
           <textarea
             className="textarea textarea-primary block w-full resize-none"
+            name="description"
             placeholder="Add Description"
             required
           ></textarea>
