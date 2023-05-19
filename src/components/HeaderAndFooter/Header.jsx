@@ -16,7 +16,7 @@ const Header = () => {
 
   return (
     <>
-      <div className="navbar flex justify-between bg-pink-800 text-gray-200 md:px-20 py-4">
+      <div className="navbar flex justify-between bg-pink-100 text-black md:px-20 py-4">
         <div className="navbar-start">
           <div className="dropdown">
             <label tabIndex={0} className="btn btn-ghost lg:hidden">
@@ -53,14 +53,14 @@ const Header = () => {
               </li>
             </ul>
           </div>
-          <Link to="/" className="font-bold text-3xl">
+          <Link to="/">
             <div className="flex gap-2">
               <img
                 src="https://img.freepik.com/free-vector/different-kind-toys_1308-71053.jpg?w=740&t=st=1684418360~exp=1684418960~hmac=28ea11f7b5e1c0dafb34e9d0dd15fdc5dc394308e89d2117dc07498aa8380a06"
                 alt=""
                 className="w-9 h-9 rounded-full"
               />
-              <h2>Toy_Land</h2>
+              <h2 className="text-orange-800 font-bold text-3xl">Toy_Land</h2>
             </div>
           </Link>
         </div>
