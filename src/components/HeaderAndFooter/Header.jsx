@@ -3,16 +3,16 @@ import { Link } from "react-router-dom";
 import { AuthContext } from "../Provider/AuthProvider";
 
 const Header = () => {
-  const [error, setError] = useState('');
+  const [error, setError] = useState("");
   const { user, signOutUser } = useContext(AuthContext);
 
   const handleSignOut = () => {
     signOutUser()
-      .then(() => { })
-      .catch(error => {
-      setError(error.message)
-    })
-  }
+      .then(() => {})
+      .catch((error) => {
+        setError(error.message);
+      });
+  };
 
   return (
     <>
@@ -74,9 +74,9 @@ const Header = () => {
             </ul>
           </div>
           <Link to="/">
-            <div className="flex gap-2">
+            <div className="flex items-center gap-2">
               <img
-                src="https://img.freepik.com/free-vector/different-kind-toys_1308-71053.jpg?w=740&t=st=1684418360~exp=1684418960~hmac=28ea11f7b5e1c0dafb34e9d0dd15fdc5dc394308e89d2117dc07498aa8380a06"
+                src="https://img.freepik.com/premium-photo/funny-illustrated-car-painted-rainbow-colors_183364-23794.jpg?w=826"
                 alt=""
                 className="w-9 h-9 rounded-full"
               />

@@ -1,10 +1,12 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
-const ToyTable = ({ allToy }) => {
-  const { photo, name, seller, category, price, quantity } = allToy;
+const ToyTable = ({ allToy, index }) => {
+  const {_id, photo, name, seller, category, price, quantity } = allToy;
   return (
     <>
       <tr>
+        <td>{index + 1}.</td>
         <td>
           <div className="flex items-center space-x-3">
             <div className="avatar">
@@ -22,11 +24,23 @@ const ToyTable = ({ allToy }) => {
         <td>$ {price}</td>
         <td>{quantity}</td>
         <th>
-          <button className="btn px-3 py-4 bg-teal-600 text-white">
-            view details
-          </button>
+          {/* <Link to={`/allToys/${_id}`}>
+            <label
+              htmlFor="my-modal-6"
+              className="btn px-3 py-4 bg-teal-600 text-white"
+            >
+              view details
+            </label>
+          </Link> */}
+          <Link to={`/toyDetails/${_id}`}>
+            <button className="btn px-3 py-4 bg-teal-600 text-white">
+              View Details
+            </button>
+          </Link>
         </th>
       </tr>
+
+      
     </>
   );
 };
