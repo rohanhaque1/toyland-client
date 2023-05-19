@@ -1,4 +1,5 @@
 import React from "react";
+import Swal from "sweetalert2";
 
 const AddToy = () => {
   const handleAddToys = (event) => {
@@ -36,10 +37,15 @@ const AddToy = () => {
     })
       .then((res) => res.json())
       .then((data) => {
-        console.log(data);
-        if (insertedId) {
-          alert('Car has been added successfully')
+        if (data.insertedId) {
+          Swal.fire({
+            title: "Success!",
+            text: "Toy Added Successfully..!!",
+            icon: "success",
+            confirmButtonText: "Cool",
+          });
         }
+        form.reset('');
       });
   };
 
