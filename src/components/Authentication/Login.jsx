@@ -1,10 +1,13 @@
 import React, { useContext, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../Provider/AuthProvider";
 
 const Login = () => {
   const [error, setError] = useState("");
   const [success, setSuccess] = useState("");
+  const navigate = useNavigate();
+  const location = useLocation();
+  const from = location.state?.from?.pathname || '/';
 
   const { signInUser, googleSignIn } = useContext(AuthContext);
 
@@ -23,6 +26,7 @@ const Login = () => {
         // console.log(loginUser)
         setSuccess("Login Successfull");
         form.reset('');
+        navigate(from, { replace: true });
       })
       .catch((error) => {
         setError(error.message);
@@ -35,7 +39,7 @@ const Login = () => {
         const googleLogin = result.user;
         // console.log(googleLogin)
         setSuccess("Google Login Successfull")
-
+        navigate(from, { replace: true });
       })
       .catch(error => {
       setError(error.message)
