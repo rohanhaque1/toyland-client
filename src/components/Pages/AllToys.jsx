@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useLoaderData } from "react-router-dom";
 import ToyTable from "./ToyTable";
 import useTitle from "../../hooks/useTitle";
@@ -9,6 +9,11 @@ const AllToys = () => {
   const allToys = useLoaderData()
   const [toys, setToys] = useState(allToys)
 
+  useEffect(() => {
+    fetch("http://localhost:5000/toys?limit=20")
+      .then(res => res.json())
+      .then((data) => setToys(data));
+  }, []);
 
   const handleSearch = (event) => {
     setSearchQuery(event.target.value);
