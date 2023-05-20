@@ -24,6 +24,11 @@ const ToyTable = ({ allToy, index }) => {
         <td>$ {price}</td>
         <td>{quantity}</td>
         <th>
+          <button className="btn px-3 py-4 bg-teal-600 text-white">
+            View Details
+          </button>
+
+          
           {/* <Link to={`/allToys/${_id}`}>
             <label
               htmlFor="my-modal-6"
@@ -32,15 +37,13 @@ const ToyTable = ({ allToy, index }) => {
               view details
             </label>
           </Link> */}
-          <Link to={`/toyDetails/${_id}`}>
+          {/* <Link to={`/toyDetails/${_id}`}>
             <button className="btn px-3 py-4 bg-teal-600 text-white">
               View Details
             </button>
-          </Link>
+          </Link> */}
         </th>
       </tr>
-
-      
     </>
   );
 };

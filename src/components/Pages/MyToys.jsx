@@ -4,7 +4,6 @@ import Toys from "./Toys";
 
 const MyToys = () => {
   const toys = useLoaderData();
-  console.log(toys);
   return (
     <>
       <section className="my-10 px-10 md:px-20">
