@@ -41,12 +41,12 @@ const ShopCategory = () => {
                 </div>
               </TabPanel>
 
-              {/* <TabPanel>
+              <TabPanel>
                 <h2>Any content 2</h2>
               </TabPanel>
               <TabPanel>
                 <h2>Any content 2</h2>
-              </TabPanel> */}
+              </TabPanel>
             </Tabs>
           </div>
         </section>

@@ -1,8 +1,8 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useLoaderData } from "react-router-dom";
 
 const ToyTable = ({ allToy, index }) => {
-  const {_id, photo, name, seller, category, price, quantity } = allToy;
+  const { _id, photo, name, seller, category, price, quantity } = allToy;
   return (
     <>
       <tr>
@@ -10,8 +10,8 @@ const ToyTable = ({ allToy, index }) => {
         <td>
           <div className="flex items-center space-x-3">
             <div className="avatar">
-              <div className="mask mask-squircle w-12 h-12">
-                <img src={photo} alt="Avatar Tailwind CSS Component" />
+              <div className="mask mask-squircle w-14 h-14">
+                <img src={photo} alt="cars" />
               </div>
             </div>
             <div>
@@ -24,24 +24,11 @@ const ToyTable = ({ allToy, index }) => {
         <td>$ {price}</td>
         <td>{quantity}</td>
         <th>
-          <button className="btn px-3 py-4 bg-teal-600 text-white">
-            View Details
-          </button>
-
-          
-          {/* <Link to={`/allToys/${_id}`}>
-            <label
-              htmlFor="my-modal-6"
-              className="btn px-3 py-4 bg-teal-600 text-white"
-            >
-              view details
-            </label>
-          </Link> */}
-          {/* <Link to={`/toyDetails/${_id}`}>
+          <Link to={`/details/${_id}`}>
             <button className="btn px-3 py-4 bg-teal-600 text-white">
               View Details
             </button>
-          </Link> */}
+          </Link>
         </th>
       </tr>
     </>

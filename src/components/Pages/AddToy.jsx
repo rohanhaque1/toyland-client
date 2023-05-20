@@ -98,9 +98,6 @@ const AddToy = () => {
               className="select select-primary w-full"
               required
             >
-              <option disabled selected>
-                Car Toys
-              </option>
               <option>Sports Car</option>
               <option>Truck</option>
               <option>Bus</option>
