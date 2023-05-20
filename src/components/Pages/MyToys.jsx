@@ -1,10 +1,12 @@
 import React, { useState } from "react";
 import { useLoaderData } from "react-router-dom";
 import Toys from "./Toys";
+import useTitle from "../../hooks/useTitle";
 
 const MyToys = () => {
   const loadedToys = useLoaderData();
   const [toys, setToys] = useState(loadedToys)
+  useTitle("My Toys");
   return (
     <>
       <section className="my-10 px-10 md:px-20">

@@ -1,7 +1,9 @@
 import React from "react";
 import Swal from "sweetalert2";
+import useTitle from "../../hooks/useTitle";
 
 const AddToy = () => {
+  useTitle("Add Toy");
   const handleAddToys = (event) => {
     event.preventDefault();
     const form = event.target;
@@ -25,7 +27,7 @@ const AddToy = () => {
       photo,
       description,
     };
-    console.log(toys);
+    
 
     // send data to the server
     fetch("http://localhost:5000/toys", {

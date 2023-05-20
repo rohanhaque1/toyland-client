@@ -1,10 +1,12 @@
 import React from "react";
 import { useLoaderData } from "react-router-dom";
 import ToyTable from "./ToyTable";
+import useTitle from "../../hooks/useTitle";
 
 const AllToys = () => {
+  useTitle("All Toys");
   const allToys = useLoaderData()
-  
+
   return (
     <>
       <section className="md:w-8/12 mx-auto my-10">

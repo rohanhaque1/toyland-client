@@ -2,9 +2,11 @@ import React from "react";
 import { Link, useLoaderData } from "react-router-dom";
 import { ArrowLeftIcon } from "@heroicons/react/24/solid";
 import Swal from "sweetalert2";
+import useTitle from "../../hooks/useTitle";
 
 const ToyUpdate = () => {
-  const toys = useLoaderData();
+    const toys = useLoaderData();
+    useTitle("Update Toy");
   const {
     _id,
     description,
