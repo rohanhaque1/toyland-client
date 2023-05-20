@@ -1,8 +1,9 @@
 import React from "react";
 import { PencilIcon, TrashIcon } from "@heroicons/react/24/solid";
 import Swal from "sweetalert2";
+import { Link } from "react-router-dom";
 
-const Toys = ({ toy, index }) => {
+const Toys = ({ toy, index, toys, setToys }) => {
   const {
     _id,
     category,
@@ -17,7 +18,6 @@ const Toys = ({ toy, index }) => {
   } = toy;
 
   const handleDelete = (_id) => {
-    
     Swal.fire({
       title: "Are you sure want to delete this?",
       text: "You won't be able to revert this!",
@@ -35,6 +35,8 @@ const Toys = ({ toy, index }) => {
           .then((data) => {
             if (data.deletedCount > 0) {
               Swal.fire("Deleted!", "Toy has been deleted.", "success");
+              const remaining = toys.filter((toy) => toy._id !== _id);
+              setToys(remaining);
             }
           });
       }
@@ -63,7 +65,9 @@ const Toys = ({ toy, index }) => {
         <td>{rating}</td>
         <td>{quantity}</td>
         <td>
-          <PencilIcon className="h-8 w-10 text-emerald-500" />
+          <Link to={`/toyUpdate/${_id}`}>
+            <PencilIcon className="h-8 w-10 text-emerald-500" />
+          </Link>
         </td>
         <td>
           <button onClick={() => handleDelete(_id)}>

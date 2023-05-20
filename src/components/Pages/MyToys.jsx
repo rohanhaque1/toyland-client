@@ -1,9 +1,10 @@
-import React from "react";
+import React, { useState } from "react";
 import { useLoaderData } from "react-router-dom";
 import Toys from "./Toys";
 
 const MyToys = () => {
-  const toys = useLoaderData();
+  const loadedToys = useLoaderData();
+  const [toys, setToys] = useState(loadedToys)
   return (
     <>
       <section className="my-10 px-10 md:px-20">
@@ -30,7 +31,7 @@ const MyToys = () => {
             </thead>
             <tbody>
               {toys.map((toy, index) => (
-                <Toys key={toy._id} toy={toy} index={index}></Toys>
+                <Toys key={toy._id} toy={toy} index={index} toys={toys} setToys={setToys}></Toys>
               ))}
             </tbody>
           </table>
