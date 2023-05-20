@@ -1,8 +1,10 @@
 import React from "react";
 import { Link, useLoaderData } from "react-router-dom";
 import { ArrowLeftIcon } from "@heroicons/react/24/solid";
+import useTitle from "../../hooks/useTitle";
 
 const ToyDetails = () => {
+  useTitle("Toy Details");
   const details = useLoaderData();
   const {
     photo,

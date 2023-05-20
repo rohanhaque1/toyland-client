@@ -1,11 +1,22 @@
-import React from "react";
+import React, { useState } from "react";
 import { useLoaderData } from "react-router-dom";
 import ToyTable from "./ToyTable";
 import useTitle from "../../hooks/useTitle";
 
 const AllToys = () => {
   useTitle("All Toys");
+  const [searchQuery, setSearchQuery] = useState("");
   const allToys = useLoaderData()
+  const [toys, setToys] = useState(allToys)
+
+
+  const handleSearch = (event) => {
+    setSearchQuery(event.target.value);
+  };
+
+  const filteredToys = toys.filter((toy) =>
+    toy.name.toLowerCase().includes(searchQuery.toLowerCase())
+  );
 
   return (
     <>
@@ -14,34 +25,18 @@ const AllToys = () => {
           All Toys Here
         </h2>
 
-        <div className="input-group w-1/3 mx-auto flex">
+        <div className="w-1/3 mx-auto">
           <input
             type="search"
             placeholder="Search Toy Name"
             className="input input-bordered input-primary w-full"
+            onChange={handleSearch}
           />
-          <button className="btn btn-square">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              className="h-6 w-6"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth="2"
-                d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
-              />
-            </svg>
-          </button>
         </div>
       </section>
       <section className="my-10 px-20">
         <div className="overflow-x-auto w-full">
           <table className="table w-full">
-            
             <thead>
               <tr>
                 <th>SL</th>
@@ -54,9 +49,13 @@ const AllToys = () => {
               </tr>
             </thead>
             <tbody>
-              {
-                allToys.map((allToy, index) => <ToyTable key={allToy._id} allToy={allToy} index={index}></ToyTable>)
-              }
+              {filteredToys.map((allToy, index) => (
+                <ToyTable
+                  key={allToy._id}
+                  allToy={allToy}
+                  index={index}
+                ></ToyTable>
+              ))}
             </tbody>
           </table>
         </div>
