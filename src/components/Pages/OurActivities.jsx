@@ -4,7 +4,10 @@ const OurActivities = () => {
   return (
     <>
       <section className="md:w-10/12 mx-auto my-14 text-center grid md:grid-cols-3 gap-6">
-        <div className="bg-slate-300 rounded-lg shadow-lg p-8">
+        <div
+          className="bg-slate-300 rounded-lg shadow-lg p-8"
+          data-aos="zoom-in-right"
+        >
           <img
             src="https://img.freepik.com/premium-photo/photo-think-outside-box-school-green-blackboard-generat-ai_872074-559.jpg?w=1060"
             alt=""
@@ -17,7 +20,10 @@ const OurActivities = () => {
             sure to spark imagination and create lasting memories. Explore now!"
           </p>
         </div>
-        <div className="bg-slate-300 rounded-lg shadow-lg p-8">
+        <div
+          className="bg-slate-300 rounded-lg shadow-lg p-8"
+          data-aos="zoom-in"
+        >
           <img
             src="https://img.freepik.com/free-vector/target-audience-search-internet-promotion-customer-focus-advertising-direction-ad-campaign-clientele-acquisition-client-manager-cartoon-character-vector-isolated-concept-metaphor-illustration_335657-2859.jpg?w=740&t=st=1684426118~exp=1684426718~hmac=ad6d8d8e489d143b2510d65b57adb7f49cc77314f1f980c2ef1d4a37a9ec95be"
             alt=""
@@ -31,7 +37,10 @@ const OurActivities = () => {
             delight toy enthusiasts. Check them out now!"
           </p>
         </div>
-        <div className="bg-slate-300 rounded-lg shadow-lg p-8">
+        <div
+          className="bg-slate-300 rounded-lg shadow-lg p-8"
+          data-aos="zoom-in-left"
+        >
           <img
             src="https://img.freepik.com/premium-vector/3d-chat-bubble-with-yellow-star-customer-rating-feedback-network-communication-social-media-bubble_313242-1363.jpg?w=740"
             alt=""
