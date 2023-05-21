@@ -1,8 +1,10 @@
-import React from "react";
+import React, { useContext } from "react";
 import Swal from "sweetalert2";
 import useTitle from "../../hooks/useTitle";
+import { AuthContext } from "../Provider/AuthProvider";
 
 const AddToy = () => {
+  const {user} = useContext(AuthContext)
   useTitle("Add Toy");
   const handleAddToys = (event) => {
     event.preventDefault();
@@ -77,6 +79,7 @@ const AddToy = () => {
               type="text"
               name="seller"
               placeholder="Seller Name"
+              defaultValue={user?.displayName}
               className="input input-bordered input-primary w-full"
               required
             />
@@ -87,6 +90,7 @@ const AddToy = () => {
               type="email"
               name="email"
               placeholder="Seller Email"
+              defaultValue={user?.email}
               className="input input-bordered input-primary w-full"
               required
             />
