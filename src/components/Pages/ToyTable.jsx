@@ -1,9 +1,7 @@
-import React, { useContext } from "react";
-import { Link, useLoaderData } from "react-router-dom";
-import { AuthContext } from "../Provider/AuthProvider";
+import React from "react";
+import { Link } from "react-router-dom";
 
 const ToyTable = ({ allToy, index }) => {
-  const {user} = useContext(AuthContext)
   const { _id, photo, name, seller, category, price, quantity } = allToy;
   return (
     <>
@@ -21,7 +19,7 @@ const ToyTable = ({ allToy, index }) => {
             </div>
           </div>
         </td>
-        <td>{user?.displayName}</td>
+        <td>{seller}</td>
         <td>{category}</td>
         <td>$ {price}</td>
         <td>{quantity}</td>
