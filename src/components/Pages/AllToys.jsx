@@ -6,12 +6,12 @@ import useTitle from "../../hooks/useTitle";
 const AllToys = () => {
   useTitle("All Toys");
   const [searchQuery, setSearchQuery] = useState("");
-  const allToys = useLoaderData()
-  const [toys, setToys] = useState(allToys)
+  const allToys = useLoaderData();
+  const [toys, setToys] = useState(allToys);
 
   useEffect(() => {
-    fetch("http://localhost:5000/toys?limit=20")
-      .then(res => res.json())
+    fetch("https://toyland-server-eight.vercel.app/toys?limit=20")
+      .then((res) => res.json())
       .then((data) => setToys(data));
   }, []);
 

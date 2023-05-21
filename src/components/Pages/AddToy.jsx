@@ -4,7 +4,7 @@ import useTitle from "../../hooks/useTitle";
 import { AuthContext } from "../Provider/AuthProvider";
 
 const AddToy = () => {
-  const {user} = useContext(AuthContext)
+  const { user } = useContext(AuthContext);
   useTitle("Add Toy");
   const handleAddToys = (event) => {
     event.preventDefault();
@@ -29,15 +29,14 @@ const AddToy = () => {
       photo,
       description,
     };
-    
 
     // send data to the server
-    fetch("http://localhost:5000/toys", {
-      method: 'POST',
+    fetch("https://toyland-server-eight.vercel.app/toys", {
+      method: "POST",
       headers: {
-        'content-type': 'application/json'
+        "content-type": "application/json",
       },
-      body: JSON.stringify(toys)
+      body: JSON.stringify(toys),
     })
       .then((res) => res.json())
       .then((data) => {
@@ -49,7 +48,7 @@ const AddToy = () => {
             confirmButtonText: "Cool",
           });
         }
-        form.reset('');
+        form.reset("");
       });
   };
 

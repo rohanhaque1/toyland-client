@@ -22,7 +22,7 @@ const ToyUpdate = () => {
     };
 
     // send data to the server
-    fetch(`http://localhost:5000/toys/${_id}`, {
+    fetch(`https://toyland-server-eight.vercel.app/toys/${_id}`, {
       method: "PUT",
       headers: {
         "content-type": "application/json",

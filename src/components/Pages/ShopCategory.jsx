@@ -6,7 +6,7 @@ import ToyList from "./ToyList";
 const ShopCategory = () => {
   const [toysData, setToysData] = useState([]);
   useEffect(() => {
-    fetch("http://localhost:5000/toys")
+    fetch("https://toyland-server-eight.vercel.app/toys")
       .then((res) => res.json())
       .then((data) => setToysData(data));
   }, []);
