@@ -48,6 +48,16 @@ const Toys = ({ toy, index, toys, setToys }) => {
       <tr>
         <td>{index + 1}.</td>
         <td>
+          <Link to={`/toyUpdate/${_id}`}>
+            <PencilIcon className="h-8 w-10 text-emerald-500" />
+          </Link>
+        </td>
+        <td>
+          <button onClick={() => handleDelete(_id)}>
+            <TrashIcon className="h-8 w-10 text-red-500" />
+          </button>
+        </td>
+        <td>
           <div className="avatar">
             <div className="mask mask-squircle w-12 h-12">
               <img src={photo} alt="Avatar Tailwind CSS Component" />
@@ -60,20 +70,10 @@ const Toys = ({ toy, index, toys, setToys }) => {
         <td>{seller}</td>
         <td>{email}</td>
         <td>{category}</td>
-        <td>{description}</td>
         <td>$ {price}</td>
         <td>{rating}</td>
         <td>{quantity}</td>
-        <td>
-          <Link to={`/toyUpdate/${_id}`}>
-            <PencilIcon className="h-8 w-10 text-emerald-500" />
-          </Link>
-        </td>
-        <td>
-          <button onClick={() => handleDelete(_id)}>
-            <TrashIcon className="h-8 w-10 text-red-500" />
-          </button>
-        </td>
+        <td>{description}</td>
       </tr>
     </>
   );

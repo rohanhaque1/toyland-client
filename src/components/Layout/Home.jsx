@@ -4,6 +4,7 @@ import Banner from '../Pages/Banner';
 import OurActivities from '../Pages/OurActivities';
 import ShopCategory from '../Pages/ShopCategory';
 import useTitle from '../../hooks/useTitle';
+import Review from '../Pages/Review';
 
 const Home = () => {
     useTitle("Home");
@@ -13,6 +14,7 @@ const Home = () => {
             <ShopCategory />
             <Gallery />
             <OurActivities />
+            <Review />
         </div>
     );
 };

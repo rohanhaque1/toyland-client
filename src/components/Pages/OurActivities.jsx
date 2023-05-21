@@ -3,6 +3,11 @@ import React from "react";
 const OurActivities = () => {
   return (
     <>
+      <div>
+        <h2 className="text-4xl font-bold text-red-700 text-center my-5">
+          Our Activities
+        </h2>
+      </div>
       <section className="md:w-10/12 mx-auto my-14 text-center grid md:grid-cols-3 gap-6">
         <div
           className="bg-slate-300 rounded-lg shadow-lg p-8"
