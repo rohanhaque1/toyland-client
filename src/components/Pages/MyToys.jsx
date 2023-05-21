@@ -4,9 +4,25 @@ import Toys from "./Toys";
 import useTitle from "../../hooks/useTitle";
 
 const MyToys = () => {
+  useTitle("My Toys");
   const loadedToys = useLoaderData();
   const [toys, setToys] = useState(loadedToys);
-  useTitle("My Toys");
+  const [sortOrder, setSortOrder] = useState("Ascending");
+
+  const sortProducts = () => {
+    const sortedProducts = [...toys];
+    sortedProducts.sort((a, b) => {
+      if (sortOrder === "Ascending") {
+        return a.price - b.price;
+      } else {
+        return b.price - a.price;
+      }
+    });
+
+    setToys(sortedProducts);
+    setSortOrder(sortOrder === "Ascending" ? "Descending" : "Ascending");
+  };
+
   return (
     <>
       <section className="my-10 px-10 md:px-20">
@@ -16,14 +32,30 @@ const MyToys = () => {
         <div className="text-center my-4">
           <p className="font-bold text-md">Sort By Price - </p>
           <label
-            for="Toggle3"
+            htmlFor="Toggle3"
             className="inline-flex items-center p-2 rounded-md cursor-pointer dark:text-gray-800"
           >
             <input id="Toggle3" type="checkbox" className="hidden peer" />
-            <span className="px-4 py-2 rounded-l-md bg-red-500 peer-checked:dark:bg-gray-300 peer-checked:text-black text-white font-bold">
+
+            <span
+              onClick={sortProducts}
+              className={`${
+                sortOrder == "Ascending"
+                  ? "px-4 py-2 rounded-l-md bg-gray-300 peer-checked:dark:bg-red-500 peer-checked:text-white  font-bold"
+                  : ""
+              }`}
+            >
               Ascending
             </span>
-            <span className="px-4 py-2 rounded-r-md dark:bg-gray-300 peer-checked:bg-red-500 peer-checked:text-white font-bold">
+
+            <span
+              onClick={sortProducts}
+              className={`${
+                sortOrder == "Descending"
+                  ? "px-4 py-2 rounded-r-md dark:bg-red-500 peer-checked:bg-gray-300 peer-checked:text-black font-bold"
+                  : ""
+              }`}
+            >
               Descending
             </span>
           </label>

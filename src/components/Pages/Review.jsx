@@ -3,7 +3,10 @@ import React from "react";
 const Review = () => {
   return (
     <>
-      <section className="px-10 w-1/2 mx-auto my-14 py-8 rounded-full shadow-xl bg-amber-100">
+      <section
+        className="px-10 w-1/2 mx-auto my-14 py-8 rounded-full shadow-xl bg-amber-100"
+        data-aos="flip-left"
+      >
         <h2 className="text-2xl font-bold mb-4 text-center text-gray-600">
           "Our Customer Says"
         </h2>
